@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <section id="header">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item active">
+                          <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                  </nav>
+    <div class="jumbotron jumbotron-fluid">
+            <center>
+                <img src="{{aboutMe['myPhoto']}}" class="img img-fluid rounded" alt="My Picture" srcset="" style="border-radius:60%!important; height: 220px; width:220px;">
+                <h3>Fahmi Idris</h3>  <strong>Python Developer</strong>
+                <br>
+                Saya seorang python developer, saya fokus terhadap pembuatan website menggunakan microframework Flask.
+
+                idrisfahmi253@gmail.com
+            </center>
+        </div>
+    </section>
+
+    <div class="container">
+    <section id="content">
+        <p>
+            <h3> Informasi Umum </h3>
+            Nama Lengkap    : {{aboutCV.fullName}} <br>
+            Kelahiran       : {{aboutCV.dateBorn}}  <br>
+            Spesialis       : {{aboutCV.mySpecialist}}  <br>
+            Nomor Handphone : {{aboutCV.myPhone}} <br>
+            Email : {{aboutCV.myEmail}} <br> 
+        </p>
+        <p>
+            <h3> Informasi Pendidikan </h3>
+            Institusi Pendidikan Terakhir : {{aboutCV.nameOfLastEducation}} <br>
+            Bidang Keilmuan               : {{aboutCV.concentrateTo}}  <br>
+            Deskripsi Pelajaran           : {{aboutCV.descriptionAboutYourLearn}}  <br>
+        </p> 
+        
+        <p>
+            <h3> Informasi Pekerjaan </h3>
+            <ul> 
+                {% for dataWorking in aboutWorking %}
+                    
+                <li><h4>{{aboutWorking[dataWorking]['startDate']}} - {{aboutWorking[dataWorking]['endDate']}} - {{aboutWorking[dataWorking]['workingPosition']}} ({{aboutWorking[dataWorking]['nameOffice']}})</h4></li>
+                {{aboutWorking[dataWorking]['jobDescription']}}
+                <br> 
+                {% endfor %}
+            </ul>
+        </p>       
+
+        <p>
+            <h3> Informasi Mengenai Keterampilan </h3>
+           <center>
+               {% for dataSkill in aboutCV['mySkills']  %}
+               
+               <button disabled="disabled" class="btn btn-primary">{{dataSkill}}</button>
+               
+               {% endfor %}
+        </center>
+           
+        </p>
+
+        <p>
+            <h3> Pencapaian </h3>
+            <ul>
+                <li>Meraih sertifikasi MTCNA</li>
+                <li>Fullstack Design</li>
+            </ul>
+        </p>
+    </section>
+</div>
+
+    <section id="footer" class="footer" style="
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;">
+      <center>
+          2019 Powered by Fahmi Developer
+      </center>
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- //akhir kontainer -->
+</body>
+</html>
